@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+    <title>APOYO | LIA ARMENDÁRIZ RIVERA</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="APOYA A LÍA ARMENDÁRIZ RIVERA" />
+    <meta property="og:description" content="Representando a México desde los 4 años. ¡Acompáñame en mi sueño!" />
+    
+    <meta property="og:image" content="https://i.postimg.cc/J489F5WG/og-lia.jpg" />
+    <meta property="og:image:secure_url" content="https://i.postimg.cc/J489F5WG/og-lia.jpg" />
+    
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:url" content="https://portafolio-lia.surge.sh/" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section id="portada-hub" class="main-hub">
+        <header class="hub-header">
+            <img src="assets/imagenes/logo.png" alt="Logo" class="agency-logo">
+            <div class="brand-text">
+                <span class="agency-name">APOYA MI SUEÑO OLÍMPICO</span>
+                <span class="agency-slogan">"Gracias México"</span>
+            </div>
+        </header>
+
+        <div class="hero-content">
+            <div id="user-card-vip" class="user-card">
+                <h1 id="lorena-title" class="vip-client-name">Lía Armendáriz Rivera</h1>
+                <div class="main-photo-wrapper" onclick="openProfileZoom()">
+                    <img id="profile-pic-img" src="assets/imagenes/logo.png" alt="Perfil" class="vip-photo">
+                    <div class="zoom-hint"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="vip-badge">DESDE LOS 4 AÑOS REPRESENTANDO A MÉXICO</div>
+            </div>
+            <button class="btn-share-passionate" onclick="shareExperienceRobust()">
+                COMPARTIR
+            </button>
+        </div>
+
+        <nav class="quick-access-menu">
+            <button class="menu-item" onclick="showAppContent('galeria')">
+                <i class="fas fa-images"></i><span>MI ÁLBUM</span>
+            </button>
+            <button class="menu-item" onclick="showAppContent('reconocimientos')">
+                <i class="fas fa-medal"></i><span>LOGROS</span>
+            </button>
+            <button class="menu-item" onclick="showAppContent('comprar')">
+                <i class="fas fa-handshake"></i><span>PATROCINADORES</span>
+            </button>
+            <button class="menu-item" onclick="openMarketing()">
+                <i class="fas fa-info-circle"></i><span>INFO</span>
+            </button>
+        </nav>
+
+        <div class="social-contact-wrapper">
+            <span class="social-title">VISÍTANOS Y APÓYANOS</span>
+            <nav class="social-contact-hub">
+                <a id="link-yt" href="#" target="_blank" class="social-btn btn-yt-premium" onclick="playClick()"><i class="fab fa-youtube"></i></a>
+                <a id="link-web" href="#" target="_blank" class="social-btn btn-gofundme-premium" onclick="playClick()"><i class="fas fa-hand-holding-heart"></i></a>
+                <a id="link-fb" href="#" target="_blank" class="social-btn" onclick="playClick()"><i class="fab fa-facebook-f"></i></a>
+                <a id="link-ig" href="#" target="_blank" class="social-btn" onclick="playClick()"><i class="fab fa-instagram"></i></a>
+                <a id="link-wa" href="#" target="_blank" class="social-btn" onclick="playClick()"><i class="fab fa-whatsapp"></i></a>
+            </nav>
+            <div class="credits-altpro">
+                <span>Produced by AltPro</span>
+                <a href="https://wa.me/524491472336" target="_blank" onclick="playClick()">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <main id="dynamic-content-layer" class="content-overlay" style="display: none;">
+        <button class="btn-close-overlay" onclick="closeAppContent()">×</button>
+        <section class="tab-pane" id="galeria-pane">
+            <h2 class="pane-title">TRABAJO Y DISCIPLINA</h2>
+            <div id="grid-fotos-cliente" class="premium-photo-grid"></div>
+        </section>
+        <section class="tab-pane" id="reconocimientos-pane" style="display: none;">
+            <h2 class="pane-title">MIS RECONOCIMIENTOS</h2>
+            <div id="grid-reconocimientos" class="premium-photo-grid"></div>
+        </section>
+        <section class="tab-pane" id="comprar-pane" style="display: none;">
+            <h2 class="pane-title">NUESTROS ALIADOS</h2>
+            <div id="grid-patrocinadores" class="patrocinadores-container"></div>
+        </section>
+    </main>
+
+    <div id="lightbox" class="overlay-modal" style="display: none;">
+        <button class="btn-close-global" onclick="closeLightbox()">×</button>
+        <button class="btn-nav-lightbox btn-prev" onclick="changeLightboxImage(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn-nav-lightbox btn-next" onclick="changeLightboxImage(1)"><i class="fas fa-chevron-right"></i></button>
+        <div class="zoom-premium-content">
+            <img src="assets/imagenes/logo.png" class="lightbox-logo-overlay">
+            <img id="lightbox-image" src="" alt="Zoom">
+        </div>
+    </div>
+
+    <div id="marketing-modal" class="overlay-modal" style="display: none;">
+        <div class="modal-card-premium">
+            <button class="btn-close-modal" onclick="closeMarketing()">×</button>
+            <img src="assets/imagenes/logo.png" alt="Logo" class="modal-logo">
+            <h2 class="flyer-title">APOYO A LÍA</h2>
+            <div class="qr-container-premium">
+                <img id="qr-code-img" src="" class="qr-image" alt="QR Code">
+                <p class="qr-text">ESCANEA Y COMPARTE</p>
+            </div>
+            <a id="link-wa-direct" href="#" target="_blank" class="btn-whatsapp-direct"><i class="fab fa-whatsapp"></i> CONTACTO DIRECTO</a>
+        </div>
+    </div>
+
+    <audio id="sndFondoLoop" src="assets/sonidos/himno.mp3" loop></audio>
+    <audio id="sndFxClick" src="assets/sonidos/clic.mp3"></audio>
+    <div id="audio-ui" class="audio-control-fixed" onclick="toggleMuteHimno()"><i id="mute-icon" class="fas fa-music"></i></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
