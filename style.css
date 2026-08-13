@@ -11,13 +11,13 @@
 body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-serif; color: var(--text-white); overflow-x: hidden; width: 100vw; height: 100vh; }
 
 .main-hub { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; background: radial-gradient(circle at center, #2c2c2c 0%, #1a1a1a 100%); overflow-y: auto; }
-.hub-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; width: 100%; max-width: 350px; }
+.hub-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; width: 100%; max-width: 320px; }
 .agency-logo { width: 45px; height: auto; }
 .brand-text { display: flex; flex-direction: column; }
 .agency-name { color: var(--brand-accent); font-family: 'Bebas Neue'; font-size: 1.6rem; line-height: 1; }
 .agency-slogan { color: var(--text-muted); font-size: 0.6rem; font-style: italic; }
 
-.hero-content { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.hero-content { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 320px; }
 
 .user-card { background: white; padding: 10px; border-radius: 20px; border: 3px solid var(--brand-accent); text-align: center; width: 100%; max-width: 280px; position: relative; box-shadow: var(--shadow-premium); }
 .vip-client-name { font-family: 'Bebas Neue'; color: var(--brand-ink); font-size: 1.8rem; margin-bottom: 5px; }
@@ -62,14 +62,66 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
     100% { left: 150%; }
 }
 
-.btn-share-passionate { background: rgba(255,255,255,0.1); color: white; border: 1px solid white; padding: 10px 20px; border-radius: 50px; font-weight: 600; font-size: 0.7rem; margin-top: 15px; cursor: pointer; text-transform: uppercase; }
+/* CONTENEDOR NUEVO: Fija y alinea perfectamente el botón "COMPARTE EN REDES" y el código QR sin desbordarse */
+.share-qr-container-outer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+}
 
-.quick-access-menu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; max-width: 350px; margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+.share-qr-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 280px;
+}
+
+.btn-share-passionate {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid white;
+    padding: 12px 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.7rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    flex: 1;
+    margin-top: 0 !important;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.inline-qr-box {
+    background: #ffffff;
+    padding: 4px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.inline-qr-box img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+}
+
+/* MENÚ DE ACCESO RÁPIDO: Corregido para que no se desborde y mantenga la proporción */
+.quick-access-menu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; width: 100%; max-width: 320px; margin-top: 20px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
 .menu-item { background: none; border: none; color: var(--text-white); display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; }
-.menu-item i { background: rgba(255,255,255,0.1); width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; border-radius: 50%; color: var(--brand-accent); border: 1px solid rgba(255,255,255,0.2); }
-.menu-item span { font-size: 0.45rem; font-weight: 700; text-transform: uppercase; text-align: center; }
+.menu-item i { background: rgba(255,255,255,0.1); width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-size: 1rem; border-radius: 50%; color: var(--brand-accent); border: 1px solid rgba(255,255,255,0.2); }
+.menu-item span { font-size: 0.42rem; font-weight: 700; text-transform: uppercase; text-align: center; }
 
-.social-contact-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 20px; max-width: 350px; padding-bottom: 20px; }
+.social-contact-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 20px; max-width: 320px; padding-bottom: 20px; }
 .social-title { color: var(--text-muted); font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; }
 .social-contact-hub { display: flex; gap: 10px; margin-bottom: 15px; }
 .social-btn { text-decoration: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid var(--text-white); color: var(--text-white); font-size: 1.2rem; }
