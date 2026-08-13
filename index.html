@@ -8,16 +8,56 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="APOYA A LÍA ARMENDÁRIZ RIVERA" />
     <meta property="og:description" content="Representando a México desde los 4 años. ¡Toca la imagen para conocer mi historia!" />
-    <meta property="og:image" content="https://i.postimg.cc/y6pP7S6j/og-lia.jpg" />
-    <meta property="og:image:secure_url" content="https://i.postimg.cc/y6pP7S6j/og-lia.jpg" />
+    <meta property="og:image" content="https://lia-armendariz.pideya.contact/og_lia.jpg" />
+    <meta property="og:image:secure_url" content="https://lia-armendariz.pideya.contact/og_lia.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://altpro22.github.io/apoyo-lia/" />
+    <meta property="og:url" content="https://lia-armendariz.pideya.contact/" />
     <meta name="robots" content="index, follow" />
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos ajustados con un QR más grande y legible */
+        .share-qr-container-outer {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0px;
+        }
+        .share-qr-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 420px;
+        }
+        .share-qr-wrapper .btn-share-passionate {
+            flex: 1;
+            margin-top: 0 !important;
+        }
+        .inline-qr-box {
+            background: #ffffff;
+            padding: 6px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+            width: 72px;  /* Caja más grande */
+            height: 72px; /* Caja más grande */
+            flex-shrink: 0;
+        }
+        .inline-qr-box img {
+            width: 60px;  /* Imagen del QR más grande y legible */
+            height: 60px; /* Imagen del QR más grande y legible */
+            object-fit: contain;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -44,9 +84,16 @@
                 AGRADECEMOS TU DONACIÓN
             </button>
 
-            <button class="btn-share-passionate" onclick="shareExperienceRobust()">
-                COMPARTIR
-            </button>
+            <div class="share-qr-container-outer">
+                <div class="share-qr-wrapper">
+                    <button class="btn-share-passionate" onclick="shareExperienceRobust()">
+                        COMPARTE EN REDES
+                    </button>
+                    <div class="inline-qr-box">
+                        <img src="assets/imagenes/qr.png" alt="Código QR">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <nav class="quick-access-menu">
@@ -75,7 +122,7 @@
             </nav>
             
             <div class="credits-altpro">
-                <span><strong>SMART-ID</strong> Produced by AltPro</span>
+                <span><strong>SMART-ID</strong> Produced por Talent Card
                 <a href="https://wa.me/524491472336" target="_blank" onclick="playClick()">
                     <i class="fab fa-whatsapp"></i>
                 </a>
