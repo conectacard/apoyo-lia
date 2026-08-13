@@ -5,38 +5,74 @@
     --text-white: #ffffff;
     --text-muted: rgba(255,255,255,0.7);
     --shadow-premium: 0 10px 30px rgba(0,0,0,0.5);
-    --gofundme-green: #00b964; 
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-serif; color: var(--text-white); overflow: hidden; width: 100vw; height: 100vh; }
+body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-serif; color: var(--text-white); overflow-x: hidden; width: 100vw; height: 100vh; }
 
-.main-hub { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; background: radial-gradient(circle at center, #2c2c2c 0%, #1a1a1a 100%); }
-.hub-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; width: 100%; max-width: 350px; }
+.main-hub { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; background: radial-gradient(circle at center, #2c2c2c 0%, #1a1a1a 100%); overflow-y: auto; }
+.hub-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; width: 100%; max-width: 350px; }
 .agency-logo { width: 45px; height: auto; }
 .brand-text { display: flex; flex-direction: column; }
 .agency-name { color: var(--brand-accent); font-family: 'Bebas Neue'; font-size: 1.6rem; line-height: 1; }
 .agency-slogan { color: var(--text-muted); font-size: 0.6rem; font-style: italic; }
+
+.hero-content { display: flex; flex-direction: column; align-items: center; width: 100%; }
 
 .user-card { background: white; padding: 10px; border-radius: 20px; border: 3px solid var(--brand-accent); text-align: center; width: 100%; max-width: 280px; position: relative; box-shadow: var(--shadow-premium); }
 .vip-client-name { font-family: 'Bebas Neue'; color: var(--brand-ink); font-size: 1.8rem; margin-bottom: 5px; }
 .main-photo-wrapper { position: relative; cursor: pointer; border-radius: 12px; overflow: hidden; height: 280px; }
 .vip-photo { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block; }
 .zoom-hint { position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.5); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; border: 1px solid white; }
-.vip-badge { position: absolute; bottom: -8px; right: -8px; background: var(--brand-ink); color: white; padding: 6px 12px; font-weight: 800; font-size: 0.6rem; border-radius: 50px; border: 2px solid var(--brand-accent); }
+.vip-badge { position: absolute; bottom: -8px; right: -8px; background: var(--brand-ink); color: white; padding: 6px 12px; font-weight: 800; font-size: 0.6rem; border-radius: 50px; border: 2px solid var(--brand-accent); z-index: 10; }
 
-.btn-share-passionate { background: linear-gradient(135deg, var(--brand-ink) 0%, #ff1a1a 100%); color: white; border: none; padding: 12px 20px; border-radius: 50px; font-weight: 900; font-size: 0.75rem; margin-top: 15px; cursor: pointer; text-transform: uppercase; }
+.btn-donation-shiny {
+    position: relative;
+    background: linear-gradient(135deg, #b8860b 0%, #d4af37 50%, #b8860b 100%);
+    color: white;
+    border: 2px solid white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 280px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.btn-donation-shiny::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 50%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+    animation: shiny-sweep 3s infinite;
+}
+
+@keyframes shiny-sweep {
+    0% { left: -100%; }
+    20% { left: 150%; }
+    100% { left: 150%; }
+}
+
+.btn-share-passionate { background: rgba(255,255,255,0.1); color: white; border: 1px solid white; padding: 10px 20px; border-radius: 50px; font-weight: 600; font-size: 0.7rem; margin-top: 15px; cursor: pointer; text-transform: uppercase; }
 
 .quick-access-menu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; max-width: 350px; margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
 .menu-item { background: none; border: none; color: var(--text-white); display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; }
 .menu-item i { background: rgba(255,255,255,0.1); width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; border-radius: 50%; color: var(--brand-accent); border: 1px solid rgba(255,255,255,0.2); }
-.menu-item span { font-size: 0.5rem; font-weight: 700; text-transform: uppercase; }
+.menu-item span { font-size: 0.45rem; font-weight: 700; text-transform: uppercase; text-align: center; }
 
-.social-contact-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 25px; max-width: 350px; }
+.social-contact-wrapper { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 20px; max-width: 350px; padding-bottom: 20px; }
 .social-title { color: var(--text-muted); font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; }
 .social-contact-hub { display: flex; gap: 10px; margin-bottom: 15px; }
 .social-btn { text-decoration: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.08); border: 1px solid var(--text-white); color: var(--text-white); font-size: 1.2rem; }
-.btn-gofundme-premium { border: 2px solid var(--gofundme-green) !important; color: var(--gofundme-green) !important; }
 .btn-yt-premium { border: 2px solid #EAFF00 !important; color: #EAFF00 !important; }
 
 .credits-altpro { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.6rem; font-weight: 600; }
@@ -59,16 +95,12 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
 .overlay-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; display: flex; align-items: center; justify-content: center; }
 .zoom-premium-content { position: relative; width: 95%; max-width: 400px; }
 #lightbox-image { width: 100%; max-height: 85vh; object-fit: contain; border: 4px solid white; border-radius: 10px; transition: opacity 0.2s; }
-
 .lightbox-logo-overlay { position: absolute; top: 15px; right: 15px; width: 35px; height: auto; z-index: 2001; opacity: 0.8; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
-
 .btn-close-global { position: absolute; top: 15px; left: 15px; background: var(--brand-ink); color: white; width: 45px; height: 45px; border-radius: 50%; border: 2px solid white; font-size: 1.5rem; z-index: 2002; }
 
-.btn-nav-lightbox { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: 2px solid rgba(255,255,255,0.5); width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 2005; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-.btn-nav-lightbox:active { background: var(--brand-ink); border-color: white; }
+.btn-nav-lightbox { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); color: white; border: 2px solid rgba(255,255,255,0.5); width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 2005; display: flex; align-items: center; justify-content: center; }
 .btn-prev { left: 20px; }
 .btn-next { right: 20px; }
-.single-image .btn-nav-lightbox { display: none; }
 
 .modal-card-premium { background: white; padding: 30px 20px; border-radius: 25px; width: 90%; max-width: 320px; text-align: center; border: 4px solid var(--brand-accent); color: #333; position: relative; }
 .btn-close-modal { position: absolute; top: -15px; right: -15px; background: var(--brand-ink); color: white; width: 35px; height: 35px; border-radius: 50%; border: 2px solid white; }
@@ -78,4 +110,55 @@ body { background-color: var(--bg-premium); font-family: 'Montserrat', sans-seri
 .qr-image { width: 110px; }
 .btn-whatsapp-direct { display: flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: white; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.85rem; }
 
-.audio-control-fixed { position: fixed; bottom: 20px; right: 20px; background: var(--brand-accent); color: var(--brand-ink); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 3000; }
+/* ESTILOS DE LOS BOTONES DORADOS Y MODAL DE FLYER */
+.btn-conoceme-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #fcf6ba 50%, #d4af37 100%);
+    color: #4a3200;
+    border: 2px solid white;
+    padding: 12px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-top: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+}
+
+.modal-card-flyer {
+    background: white;
+    padding: 40px 25px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 330px;
+    text-align: center;
+    border: 6px double var(--brand-accent);
+    color: #1a1a1a;
+    position: relative;
+    box-shadow: 0 0 30px rgba(212,175,55,0.5);
+}
+
+.flyer-title-gold {
+    font-family: 'Bebas Neue';
+    color: var(--brand-ink);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.flyer-text-p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.flyer-footer-name {
+    font-weight: 900;
+    color: var(--brand-accent);
+    font-family: 'Bebas Neue';
+    font-size: 1.2rem;
+}

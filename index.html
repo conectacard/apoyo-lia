@@ -8,17 +8,15 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="APOYA A LÍA ARMENDÁRIZ RIVERA" />
     <meta property="og:description" content="Representando a México desde los 4 años. ¡Toca la imagen para conocer mi historia!" />
-    
     <meta property="og:image" content="https://i.postimg.cc/y6pP7S6j/og-lia.jpg" />
     <meta property="og:image:secure_url" content="https://i.postimg.cc/y6pP7S6j/og-lia.jpg" />
-    
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://altpro22.github.io/apoyo-lia/" />
     <meta name="robots" content="index, follow" />
 
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -36,17 +34,25 @@
             <div id="user-card-vip" class="user-card">
                 <h1 id="lorena-title" class="vip-client-name">Lía Armendáriz Rivera</h1>
                 <div class="main-photo-wrapper" onclick="openProfileZoom()">
-                    <img id="profile-pic-img" src="assets/imagenes/logo.png" alt="Perfil" class="vip-photo">
+                    <img id="profile-pic-img" src="assets/imagenes/1.jpg" alt="Perfil" class="vip-photo">
                     <div class="zoom-hint"><i class="fas fa-search-plus"></i></div>
                 </div>
                 <div class="vip-badge">DESDE LOS 4 AÑOS REPRESENTANDO A MÉXICO</div>
             </div>
+
+            <button class="btn-donation-shiny" onclick="openDonation()">
+                AGRADECEMOS TU DONACIÓN
+            </button>
+
             <button class="btn-share-passionate" onclick="shareExperienceRobust()">
                 COMPARTIR
             </button>
         </div>
 
         <nav class="quick-access-menu">
+            <button class="menu-item" onclick="showAppContent('acerca')">
+                <i class="fas fa-heart"></i><span>ACERCA DE MI</span>
+            </button>
             <button class="menu-item" onclick="showAppContent('galeria')">
                 <i class="fas fa-images"></i><span>MI ÁLBUM</span>
             </button>
@@ -54,10 +60,7 @@
                 <i class="fas fa-medal"></i><span>LOGROS</span>
             </button>
             <button class="menu-item" onclick="showAppContent('comprar')">
-                <i class="fas fa-handshake"></i><span>PATROCINADORES</span>
-            </button>
-            <button class="menu-item" onclick="openMarketing()">
-                <i class="fas fa-info-circle"></i><span>INFO</span>
+                <i class="fas fa-handshake"></i><span>ALIADOS</span>
             </button>
         </nav>
 
@@ -65,13 +68,14 @@
             <span class="social-title">VISÍTANOS Y APÓYANOS</span>
             <nav class="social-contact-hub">
                 <a id="link-yt" href="#" target="_blank" class="social-btn btn-yt-premium" onclick="playClick()"><i class="fab fa-youtube"></i></a>
-                <a id="link-web" href="#" target="_blank" class="social-btn btn-gofundme-premium" onclick="playClick()"><i class="fas fa-hand-holding-heart"></i></a>
                 <a id="link-fb" href="#" target="_blank" class="social-btn" onclick="playClick()"><i class="fab fa-facebook-f"></i></a>
                 <a id="link-ig" href="#" target="_blank" class="social-btn" onclick="playClick()"><i class="fab fa-instagram"></i></a>
                 <a id="link-wa" href="#" target="_blank" class="social-btn" onclick="playClick()"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-btn" onclick="openMarketing()"><i class="fas fa-info-circle"></i></a>
             </nav>
+            
             <div class="credits-altpro">
-                <span>Produced by AltPro</span>
+                <span><strong>SMART-ID</strong> Produced by AltPro</span>
                 <a href="https://wa.me/524491472336" target="_blank" onclick="playClick()">
                     <i class="fab fa-whatsapp"></i>
                 </a>
@@ -81,19 +85,40 @@
 
     <main id="dynamic-content-layer" class="content-overlay" style="display: none;">
         <button class="btn-close-overlay" onclick="closeAppContent()">×</button>
-        <section class="tab-pane" id="galeria-pane">
+        
+        <section class="tab-pane" id="acerca-pane" style="display: none;">
+            <h2 class="pane-title">CONÓCEME</h2>
+            <div id="grid-acerca" class="premium-photo-grid"></div>
+            <button class="btn-conoceme-gold" onclick="openFlyer('historia')">CONÓCEME</button>
+        </section>
+
+        <section class="tab-pane" id="galeria-pane" style="display: none;">
             <h2 class="pane-title">TRABAJO Y DISCIPLINA</h2>
             <div id="grid-fotos-cliente" class="premium-photo-grid"></div>
+            <button class="btn-conoceme-gold" onclick="openFlyer('disciplina')">DÍA A DÍA</button>
         </section>
+
         <section class="tab-pane" id="reconocimientos-pane" style="display: none;">
             <h2 class="pane-title">MIS RECONOCIMIENTOS</h2>
             <div id="grid-reconocimientos" class="premium-photo-grid"></div>
+            <button class="btn-conoceme-gold" onclick="openFlyer('logros')">MIS LOGROS</button>
         </section>
+
         <section class="tab-pane" id="comprar-pane" style="display: none;">
             <h2 class="pane-title">NUESTROS ALIADOS</h2>
             <div id="grid-patrocinadores" class="patrocinadores-container"></div>
         </section>
     </main>
+
+    <div id="flyer-sponsor-modal" class="overlay-modal" style="display: none;">
+        <div class="modal-card-flyer">
+            <button class="btn-close-modal" onclick="closeFlyer()">×</button>
+            <img src="assets/imagenes/logo.png" alt="Logo" class="modal-logo">
+            <h2 id="flyer-title" class="flyer-title-gold">MI SUEÑO OLÍMPICO</h2>
+            <p class="flyer-text-p" id="flyer-speech-content"></p>
+            <div class="flyer-footer-name">LÍA ARMENDÁRIZ RIVERA</div>
+        </div>
+    </div>
 
     <div id="lightbox" class="overlay-modal" style="display: none;">
         <button class="btn-close-global" onclick="closeLightbox()">×</button>
@@ -118,9 +143,7 @@
         </div>
     </div>
 
-    <audio id="sndFondoLoop" src="assets/sonidos/himno.mp3" loop></audio>
     <audio id="sndFxClick" src="assets/sonidos/clic.mp3"></audio>
-    <div id="audio-ui" class="audio-control-fixed" onclick="toggleMuteHimno()"><i id="mute-icon" class="fas fa-music"></i></div>
 
     <script src="script.js"></script>
 </body>
